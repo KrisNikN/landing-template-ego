@@ -18,24 +18,32 @@ export const HeroTitleDiv = styled.div(
 );
 
 export const HeroTitle = styled.span(
-  ({ theme: { colors } }) => css`
-    line-height: 60px;
-    letter-spacing: 40px;
+  ({ theme: { colors, breakpoint } }) => css`
     font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-size: 58px;
-
+    text-shadow: rgba(114, 248, 210, 0.21) -20px 0px 27.52px;
     line-height: 103px;
     letter-spacing: 70px;
     font-weight: 700;
     font-size: 100px;
+
+    @media ${breakpoint.max.L} {
+      line-height: 63px;
+      letter-spacing: 42px;
+      font-size: 61px;
+    }
+
+    @media ${breakpoint.max.M} {
+      line-height: 40px;
+      letter-spacing: 14px;
+      font-size: 40px;
+    }
 
     color: ${colors.white};
   `
 );
 
 export const VersionSpan = styled.span(
-  ({ theme: { colors } }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     font-family: "Barlow", sans-serif;
     text-align: center;
     line-height: 22px;
@@ -43,7 +51,7 @@ export const VersionSpan = styled.span(
     font-weight: 700;
     font-size: 20px;
     padding-left: 14px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     color: ${colors.white};
     border-bottom: 10px solid ${colors.white};
 
@@ -71,6 +79,36 @@ export const VersionSpan = styled.span(
         transform: translateX(0);
       }
     }
+
+    @media ${breakpoint.max.L} {
+      border-bottom: 6px solid ${colors.white};
+      padding-bottom: 10px;
+      line-height: 22px;
+      letter-spacing: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      padding-left: 9px;
+      &:nth-child(1) {
+        margin-right: 42px;
+      }
+    }
+
+    @media ${breakpoint.max.M} {
+      border-bottom: 3px solid ${colors.white};
+      padding-bottom: 3px;
+      line-height: 22px;
+      letter-spacing: 7px;
+      font-weight: 700;
+      font-size: 12px;
+      padding-left: 7px;
+      &:nth-child(1) {
+        margin-right: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      display: none;
+    }
   `
 );
 
@@ -85,7 +123,16 @@ export const LinkDownContainer = styled.div(
 
 export const Link = styled.a(
   () => css`
-    position: relative;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(+400px);
+
+    &.slide-in {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+    }
   `
 );
 

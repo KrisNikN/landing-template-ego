@@ -1,10 +1,16 @@
 import { useEffect, useRef } from "react";
 import * as S from "./elements";
 
-export const Hero = () => {
+export interface HeroProps {
+  title: string;
+  version: string;
+}
+
+export const Hero = ({ title, version, ...props }: HeroProps) => {
   const leftVersionSpanRef = useRef<HTMLSpanElement>(null);
   const rightVersionSpanRef = useRef<HTMLSpanElement>(null);
   const titleRef = useRef<HTMLSpanElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const options = {
@@ -17,9 +23,10 @@ export const Hero = () => {
         if (entry.isIntersecting) {
           leftVersionSpanRef.current?.classList.add("slide-in");
           rightVersionSpanRef.current?.classList.add("slide-in");
+          buttonRef.current?.classList.add("slide-in");
         } else {
-          leftVersionSpanRef.current?.classList.remove("slide-in");
-          rightVersionSpanRef.current?.classList.remove("slide-in");
+          //leftVersionSpanRef.current?.classList.remove("slide-in");
+          //rightVersionSpanRef.current?.classList.remove("slide-in");
         }
       });
     };
@@ -39,16 +46,17 @@ export const Hero = () => {
   }, []);
 
   return (
-    <S.Hero>
+    <S.Hero {...props}>
       <S.HeroTitleDiv>
-        <S.VersionSpan ref={leftVersionSpanRef}>2.0</S.VersionSpan>
-        <S.HeroTitle ref={titleRef}>ENTROPIA</S.HeroTitle>
-        <S.VersionSpan ref={rightVersionSpanRef}>2.0</S.VersionSpan>
+        <S.VersionSpan ref={leftVersionSpanRef}>{version}</S.VersionSpan>
+        <S.HeroTitle ref={titleRef}>{title}</S.HeroTitle>
+        <S.VersionSpan ref={rightVersionSpanRef}>{version}</S.VersionSpan>
       </S.HeroTitleDiv>
       <S.LinkDownContainer>
-        <S.PolygonBackground></S.PolygonBackground>
-
-        <S.PolygonButton></S.PolygonButton>
+        <S.Link href='/' ref={buttonRef}>
+          <S.PolygonBackground></S.PolygonBackground>
+          <S.PolygonButton></S.PolygonButton>
+        </S.Link>
       </S.LinkDownContainer>
     </S.Hero>
   );
