@@ -1,19 +1,27 @@
 import styled, { css } from "styled-components";
-import { H2 as _H2, Paragraph as _Paragraph, Image as _Image } from "components";
-import { PlayColumnCard as _PlayColumnCard } from "collections";
+import { H2 as _H2, Paragraph as _Paragraph } from "components";
 
-export const Play = styled.section(
+export const NextLevel = styled.section(
   ({ theme: { breakpoint } }) => css`
     margin: 0 auto;
-    margin-top: 215px;
     width: 100%;
     max-width: 1440px;
+    margin-top: 127px;
     display: flex;
     flex-direction: column;
-    padding: 0 58px;
+
+    padding: 0 170px;
+
+    @media ${breakpoint.max.L} {
+      padding: 0 120px;
+    }
+
+    @media ${breakpoint.max.M} {
+      padding: 0 80px;
+    }
 
     @media ${breakpoint.max.S} {
-      padding: 0 15px;
+      padding: 0 30px;
     }
   `
 );
@@ -26,6 +34,7 @@ export const Title = styled(_H2)(
     text-transform: uppercase;
     line-height: 1.12em;
     color: ${colors.white};
+    max-width: 395px;
     font-size: 50px;
 
     @media ${breakpoint.max.L} {
@@ -76,28 +85,48 @@ export const Paragraph = styled(_Paragraph)(
   `
 );
 
-export const ColumnsContainer = styled.div(
-  ({ theme: { breakpoint, colors } }) => css`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-top: 103px;
+export const Link = styled.a(
+  ({ theme: { colors } }) => css`
+    position: relative;
+    width: 232px;
+    height: 66px;
+    background-color: ${colors.buttonBackground};
+    box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5);
 
-    @media ${breakpoint.max.S} {
-      flex-direction: column;
-      padding: 0 20px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 40px 5px rgba(255, 255, 255, 0.5);
+    }
+    margin-top: 75px;
+    margin-bottom: 190px;
+  `
+);
+
+export const Button = styled.div(
+  ({ theme: { colors } }) => css`
+    font-family: "Barlow", sans-serif;
+    font-size: 16px;
+    line-height: 2em;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    transform: translateX(-5px) translateY(-5px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: ${colors.white};
+    color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(0) translateY(0);
     }
   `
 );
-
-export const PlayColumnCard = styled(_PlayColumnCard)(() => css``);
-
-export const ImageContainer = styled.div(
-  () => css`
-    margin: 0 auto;
-    margin-top: 170px;
-    padding: 0 50px;
-  `
-);
-
-export const Image = styled(_Image)(() => css``);

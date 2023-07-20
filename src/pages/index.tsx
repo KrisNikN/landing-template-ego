@@ -1,14 +1,15 @@
 import { NextPage } from "next";
-import { Hero, Play, MultiUse } from "sections";
+import { Hero, Play, MultiUse, NextLevel } from "sections";
 import { Wrapper } from "components";
-import { heroProps, playProps } from "data";
+import { heroProps, playProps, multiUseProps, nextLevelProps } from "data";
 
 const Home: NextPage = () => {
   return (
     <Wrapper>
       <Hero {...heroProps} />
       <Play {...playProps} />
-      <MultiUse />
+      <MultiUse {...multiUseProps} />
+      <NextLevel {...nextLevelProps} />
     </Wrapper>
   );
 };

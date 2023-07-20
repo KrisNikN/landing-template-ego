@@ -1,18 +1,28 @@
+import { MultiUseRowCardProps } from "collections";
 import * as S from "./elements";
 
-export const MultiUse = () => {
+export interface MultiUseProps {
+  title: string;
+  paragraph: string;
+  columns: MultiUseRowCardProps[];
+}
+
+export const MultiUse = ({ columns, paragraph, title, ...props }: MultiUseProps) => {
   return (
-    <S.MultiUse>
-      <S.Title>Multiuse Inner Pages </S.Title>
+    <S.MultiUse {...props}>
+      <S.Title>{title} </S.Title>
       <S.CentrincContainer>
         <S.BorderBottom></S.BorderBottom>
       </S.CentrincContainer>
       <S.CentrincContainer>
-        <S.Paragraph>
-          Designed with gamers in mind, Entropia’s collection of layouts & templates is all you’ll
-          ever need.
-        </S.Paragraph>
+        <S.Paragraph>{paragraph}</S.Paragraph>
       </S.CentrincContainer>
+      <S.RowsContainer>
+        {columns.map((column, index) => {
+          const key = index + "rowM";
+          return <S.MultiUseRowCard key={key} cards={column.cards} />;
+        })}
+      </S.RowsContainer>
     </S.MultiUse>
   );
 };

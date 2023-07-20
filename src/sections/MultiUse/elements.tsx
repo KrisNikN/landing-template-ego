@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { H2 as _H2, Paragraph as _Paragraph } from "components";
+import { MultiUseRowCard as _MultiUseRowCard } from "collections";
 
 export const MultiUse = styled.section(
   ({ theme: { breakpoint } }) => css`
@@ -34,6 +35,7 @@ export const Title = styled(_H2)(
     text-transform: uppercase;
     line-height: 1.12em;
     color: ${colors.white};
+    font-size: 50px;
 
     @media ${breakpoint.max.L} {
       font-size: 45px;
@@ -82,3 +84,14 @@ export const Paragraph = styled(_Paragraph)(
     color: ${colors.white};
   `
 );
+
+export const RowsContainer = styled.div(
+  () => css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
+  `
+);
+
+export const MultiUseRowCard = styled(_MultiUseRowCard)(() => css``);
