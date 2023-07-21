@@ -3,14 +3,14 @@ import type { HTMLHeaderProps } from "types";
 import { Image as _Image, Link as _Link, Button as _Button } from "components";
 
 export const Header = styled("header")<HTMLHeaderProps>`
-  position: sticky;
+  /* position: sticky;
   top: 0;
   width: 100%;
   background-color: ${props => props.theme.colors.headerBackground};
   z-index: 100;
   font-size: 12px;
   height: 54px;
-  line-height: 54px;
+  line-height: 54px; */
 `;
 
 export const ItemsContainer = styled.div(

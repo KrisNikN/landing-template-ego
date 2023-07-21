@@ -8,5 +8,6 @@ export const Wrapper = styled.div(
     background-size: cover;
     background-position: center top;
     padding-top: 300px;
+    overflow-x: hidden;
   `
 );
