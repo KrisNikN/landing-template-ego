@@ -15,7 +15,8 @@ declare module "styled-components" {
     | "vividRed"
     | "headerBackground"
     | "buttonGreen"
-    | "buttonBackground";
+    | "buttonBackground"
+    | "buttonShadow";
 
   type Gradients = "blueToPurple";
 

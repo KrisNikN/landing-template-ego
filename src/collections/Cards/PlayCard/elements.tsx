@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 import { Image as _Image, H5 as _H5 } from "components";
 
+interface ActiveProps {
+  active?: boolean;
+}
+
 export const PlayCard = styled.div(
   () => css`
     width: 100%;
@@ -17,7 +21,7 @@ export const PlayCard = styled.div(
 
 export const Image = styled(_Image)(() => css``);
 
-export const Link = styled.a<{ active?: boolean }>(
+export const Link = styled.a<ActiveProps>(
   ({ active }) => css`
     background-color: black;
     width: 100%;
@@ -46,7 +50,7 @@ export const Link = styled.a<{ active?: boolean }>(
   `
 );
 
-export const CardTitle = styled(_H5)<{ active: boolean }>(
+export const CardTitle = styled(_H5)<ActiveProps>(
   ({ theme: { colors }, active }) => css`
     font-family: "Barlow", sans-serif;
     text-align: center;
