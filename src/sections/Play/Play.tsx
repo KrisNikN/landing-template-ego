@@ -15,7 +15,7 @@ export interface PlayProps {
 
 export const Play = ({ columns, paragraph, title, laptopImage, ...props }: PlayProps) => {
   return (
-    <S.Play {...props}>
+    <S.Play {...props} id='scrollTo'>
       <S.Title>{title}</S.Title>
       <S.CentrincContainer>
         <S.BorderBottom></S.BorderBottom>

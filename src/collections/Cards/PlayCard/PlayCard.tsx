@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./elements";
 
 export interface PlayCardProps {
@@ -14,18 +14,18 @@ export interface PlayCardProps {
 
 export const PlayCard = ({ cardTitle, image, ...props }: PlayCardProps) => {
   const card = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
+  const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
     const options = {
       rootMargin: "0px",
-      threshold: 0.5
+      threshold: 0.2
     };
 
     const handleIntersection: IntersectionObserverCallback = entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          linkRef.current?.classList.add("slide-in");
+          setActive(true);
         }
       });
     };
@@ -46,7 +46,7 @@ export const PlayCard = ({ cardTitle, image, ...props }: PlayCardProps) => {
 
   return (
     <S.PlayCard {...props} ref={card}>
-      <S.Link href='/' ref={linkRef}>
+      <S.Link href='/' active={active}>
         <S.Image
           src={image.src}
           width={image.width}
@@ -55,7 +55,7 @@ export const PlayCard = ({ cardTitle, image, ...props }: PlayCardProps) => {
           layout='intrinsic'
         />
       </S.Link>
-      <S.CardTitle>{cardTitle}</S.CardTitle>
+      <S.CardTitle active={active}>{cardTitle}</S.CardTitle>
     </S.PlayCard>
   );
 };

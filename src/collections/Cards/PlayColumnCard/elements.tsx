@@ -11,13 +11,13 @@ export const PlayColumnCard = styled.div(
       margin: 0 50px;
     }
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
       &:nth-child(2) {
         margin: 0 20px;
       }
     }
 
-    @media ${breakpoint.max.S} {
+    @media ${breakpoint.max.M} {
       &:nth-child(2),
       &:nth-child(3) {
         margin: 0;

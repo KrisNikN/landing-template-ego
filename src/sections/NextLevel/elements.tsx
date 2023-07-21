@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { H2 as _H2, Paragraph as _Paragraph } from "components";
+import { H2 as _H2, Paragraph as _Paragraph, Link as _Link } from "components";
 
 export const NextLevel = styled.section(
   ({ theme: { breakpoint } }) => css`
@@ -85,7 +85,7 @@ export const Paragraph = styled(_Paragraph)(
   `
 );
 
-export const Link = styled.a(
+export const Link = styled(_Link)(
   ({ theme: { colors } }) => css`
     position: relative;
     width: 232px;

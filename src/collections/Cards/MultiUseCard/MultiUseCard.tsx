@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./elements";
 
 export interface MultiUseCardProps {
@@ -14,8 +14,7 @@ export interface MultiUseCardProps {
 
 export const MultiUseCard = ({ cardTitle, href, image, ...props }: MultiUseCardProps) => {
   const card = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
     const options = {
@@ -26,7 +25,7 @@ export const MultiUseCard = ({ cardTitle, href, image, ...props }: MultiUseCardP
     const handleIntersection: IntersectionObserverCallback = entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          linkRef.current?.classList.add("slide-in");
+          setActive(true);
         }
       });
     };
@@ -47,7 +46,7 @@ export const MultiUseCard = ({ cardTitle, href, image, ...props }: MultiUseCardP
 
   return (
     <S.MultiUseCard {...props} ref={card}>
-      <S.Link href={href} ref={linkRef}>
+      <S.Link href={href} active={active}>
         <S.Image
           src={image.src}
           alt={image.alt}
@@ -56,7 +55,7 @@ export const MultiUseCard = ({ cardTitle, href, image, ...props }: MultiUseCardP
           layout='intrinsic'
         />
       </S.Link>
-      <S.CardTitle>{cardTitle}</S.CardTitle>
+      <S.CardTitle active={active}>{cardTitle}</S.CardTitle>
     </S.MultiUseCard>
   );
 };

@@ -53,7 +53,7 @@ export const Hero = ({ title, version, ...props }: HeroProps) => {
         <S.VersionSpan ref={rightVersionSpanRef}>{version}</S.VersionSpan>
       </S.HeroTitleDiv>
       <S.LinkDownContainer>
-        <S.Link href='/' ref={buttonRef}>
+        <S.Link href='#scrollTo' ref={buttonRef}>
           <S.PolygonBackground></S.PolygonBackground>
           <S.PolygonButton></S.PolygonButton>
         </S.Link>

@@ -125,7 +125,7 @@ export const Link = styled.a(
   () => css`
     position: absolute;
     opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.7s, transform 0.7s;
     transform: translateY(+400px);
 
     &.slide-in {

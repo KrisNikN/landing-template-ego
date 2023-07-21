@@ -5,7 +5,7 @@ import { PlayColumnCard as _PlayColumnCard } from "collections";
 export const Play = styled.section(
   ({ theme: { breakpoint } }) => css`
     margin: 0 auto;
-    margin-top: 215px;
+
     width: 100%;
     max-width: 1440px;
     display: flex;
@@ -14,7 +14,10 @@ export const Play = styled.section(
 
     @media ${breakpoint.max.S} {
       padding: 0 15px;
+      padding-top: 215px;
     }
+
+    padding-top: 215px;
   `
 );
 
@@ -83,7 +86,7 @@ export const ColumnsContainer = styled.div(
     align-items: center;
     margin-top: 103px;
 
-    @media ${breakpoint.max.S} {
+    @media ${breakpoint.max.M} {
       flex-direction: column;
       padding: 0 20px;
     }

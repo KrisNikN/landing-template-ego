@@ -17,8 +17,8 @@ export const PlayCard = styled.div(
 
 export const Image = styled(_Image)(() => css``);
 
-export const Link = styled.a(
-  () => css`
+export const Link = styled.a<{ active?: boolean }>(
+  ({ active }) => css`
     background-color: black;
     width: 100%;
     clip-path: inset(0 0 5px 0);
@@ -38,15 +38,16 @@ export const Link = styled.a(
     transition: opacity 0.9s, transform 0.9s;
     transform: translateY(+200px);
 
-    &.slide-in {
+    ${active &&
+    css`
       opacity: 1;
       transform: translateY(0);
-    }
+    `}
   `
 );
 
-export const CardTitle = styled(_H5)(
-  ({ theme: { colors } }) => css`
+export const CardTitle = styled(_H5)<{ active: boolean }>(
+  ({ theme: { colors }, active }) => css`
     font-family: "Barlow", sans-serif;
     text-align: center;
     text-transform: uppercase;
@@ -55,5 +56,15 @@ export const CardTitle = styled(_H5)(
     line-height: 1.4em;
     font-weight: 700;
     color: ${colors.white};
+
+    opacity: 0;
+    transition: opacity 0.9s, transform 0.9s;
+    transform: translateY(+200px);
+
+    ${active &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
   `
 );
