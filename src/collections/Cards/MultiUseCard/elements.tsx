@@ -80,3 +80,9 @@ export const CardTitle = styled(_H5)<ActiveProps>(
     `}
   `
 );
+
+
+export const CardElleTitle = styled(_H5)<ActiveProps>(
+  ({ theme: { colors }, active }) => css`
+  `
+);
