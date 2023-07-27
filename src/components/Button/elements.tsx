@@ -12,11 +12,16 @@ const buttonStyles: Record<
 > = {
   primary: css`
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.primary};
-    padding: 1.1em 2.5em;
+    background-color: ${({ theme }) => theme.colors.buttonGreen};
+
     border: none;
-    text-transform: uppercase;
     transition: opacity 300ms ease;
+    box-shadow: 0 2px 0 ${({ theme }) => theme.colors.buttonShadow};
+    font-size: 14px;
+    padding: 10px 20px;
+
+    border-radius: 4px;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.8;
@@ -26,7 +31,7 @@ const buttonStyles: Record<
     color: ${({ theme }) => theme.colors.white};
     background-color: transparent;
     padding: 0.9em 2em;
-    border: 1px solid ${({ theme }) => theme.colors.white};
+
     transition: color 500ms ease, background-color 500ms ease;
 
     &:hover {

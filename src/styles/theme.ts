@@ -10,7 +10,9 @@ export const theme: DefaultTheme = {
     white: "#ffffff",
     vividRed: "#cf2e2e",
     headerBackground: "#262626",
-    buttonGreen: "#6f9a37"
+    buttonGreen: "#6f9a37",
+    buttonBackground: "#9ED5B7",
+    buttonShadow: "#6f9a37"
   },
   typography,
   gradients: {
