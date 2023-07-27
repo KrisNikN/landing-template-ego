@@ -44,11 +44,9 @@ export const MultiUseCard = ({ cardTitle, href, image, ...props }: MultiUseCardP
     };
   }, []);
 
-  
-
   return (
     <S.MultiUseCard {...props} ref={card}>
-      <S.Link href={href} active={active}>
+      <S.Link href={href} active={active} target='_blank'>
         <S.Image
           src={image.src}
           alt={image.alt}

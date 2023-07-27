@@ -12,7 +12,7 @@ export interface PlayCardProps {
   href: string;
 }
 
-export const PlayCard = ({ cardTitle, image, ...props }: PlayCardProps) => {
+export const PlayCard = ({ cardTitle, image, href, ...props }: PlayCardProps) => {
   const card = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<boolean>(false);
 
@@ -46,7 +46,7 @@ export const PlayCard = ({ cardTitle, image, ...props }: PlayCardProps) => {
 
   return (
     <S.PlayCard {...props} ref={card}>
-      <S.Link href='/' active={active}>
+      <S.Link href={href} active={active} target='_blank'>
         <S.Image
           src={image.src}
           width={image.width}
